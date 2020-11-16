@@ -6,10 +6,13 @@ call plug#begin('~/.vim/plugged')
 "Plugins
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+Plug 'mattn/emmet-vim'                  "Emmet for HTML
+
 Plug 'junegunn/fzf'                     "Fuzzy finder
 Plug 'junegunn/fzf.vim'
 
-Plug 'preservim/nerdtree'               "File browser
+"Plug 'preservim/nerdtree'               "File browser
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
 Plug 'majutsushi/tagbar'                "Tag browser
 Plug 'mbbill/undotree'                  "Undo tree
 
@@ -22,14 +25,17 @@ Plug 'mengelbrecht/lightline-bufferline'
 
 Plug 'jiangmiao/auto-pairs'             "Auto pair
 Plug 'frazrepo/vim-rainbow'             "Rainbow colored parentheses
+Plug 'tpope/vim-surround'               "Surround
 
 Plug 'Konfekt/FastFold'                 "Fast folding
 Plug 'tmhedberg/SimpylFold'             "Better Python folding
+Plug 'Yggdroot/indentLine'              "Indentation line
+Plug 'junegunn/vim-easy-align'          "Easy alignment
 
 Plug 'preservim/nerdcommenter'          "Commenter
 Plug 'ryanoasis/vim-devicons'           "Icons for NERDTree
 
-Plug 'aurieh/discord.nvim'              "Discord Rich Presence
+Plug 'tpope/vim-fugitive'               "Git integration
 
 call plug#end()
 
@@ -69,6 +75,7 @@ set wildmenu
 
 "Lets
 let g:python_highlight_all = 1
+let g:indentLine_char = '▏'
 
 let g:onedark_terminal_italics = 1
 let g:onedark_color_overrides = {
@@ -101,14 +108,15 @@ au FileType c,cpp           inoremap <buffer> <F6> <esc>:w<cr>:make build<cr>
 au FileType python          inoremap <buffer> <F5> <esc>:w<cr>:exec '!python' shellescape(@%, 1)<cr>
 au FileType cs              inoremap <buffer> <F5> <esc>:w<cr>:!dotnet run<cr>
 
-au FileType c,csharp,python call rainbow#load()
-au FileType python          set cc=80
+au FileType python          set cc=88
+au FileType html            set ts=1 sw=1
+au Filetype c,cs,cpp,python call rainbow#load()
 au VimLeave *               set guicursor=a:hor100-blinkon1
 
 "Mappings
 let mapleader = " "
 nnoremap <leader>w :w!
-nnoremap <leader>n :NERDTreeToggle<cr>
+nnoremap <leader>n :CHADopen<cr>
 nnoremap <leader>t :TagbarToggle<cr>
 nnoremap <leader>u :UndotreeToggle<cr>
 nnoremap <leader>/ :noh<cr>
@@ -166,6 +174,9 @@ xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>ac  <Plug>(coc-codeaction)
 nmap <leader>qf  <Plug>(coc-fix-current)
+
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 "Commands
 command AdocPreview execute "!vivaldi-stable %"

@@ -9,9 +9,10 @@
 ;==========================================================
 
 [colors]
-background = #33AAAAAA
+background = #1e2127
+;background = #33AAAAAA
 foreground = #fff
-icon = #888
+icon = #fff
 primary = #dfdfdf
 secondary = #e60053
 alert = #bd2c40
@@ -20,11 +21,13 @@ alert = #bd2c40
 monitor = ${env:MONITOR:HDMI-1-1}
 width = 100%
 height = 24
-fixed-center = false
+fixed-center = true
 bottom = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 separator = "| "
+
+enable-ipc = true
 
 line-size = 2
 line-color = #f00
@@ -38,15 +41,16 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Roboto:size=9:weight=light;2
-font-1 = Segoe MDL2 Assets:size=10;4
+;font-0 = Roboto:size=9:weight=light;2
+font-0 = Segoe UI:size=10;2
+font-1 = Hack Nerd Font:size=11;3
 
-modules-left = i3
-modules-center = 
-modules-right = pulseaudio cpu memory temperature date
+modules-left = i3 ytmp3
+modules-center = date
+modules-right = pulseaudio cpu memory temperature
 
-tray-position = center
-tray-padding = 2
+tray-position = right
+tray-padding = 4
 
 ;wm-restack = i3
 
@@ -59,7 +63,7 @@ cursor-scroll = pointer
 [module/cpu]
 type = internal/cpu
 interval = 1
-format-prefix = " "
+format-prefix = "  "
 format-prefix-foreground = ${colors.icon}
 format = <label>
 label = %percentage%%
@@ -67,7 +71,7 @@ label = %percentage%%
 [module/memory]
 type = internal/memory
 interval = 1
-format-prefix = " "
+format-prefix = "ﱨ   "
 format-prefix-foreground = ${colors.icon}
 label = %percentage_used%%
 format = <label>
@@ -76,9 +80,9 @@ format = <label>
 type = internal/date
 interval = 1
 date =
-date-alt = " %d.%m.%Y"
-time = "%H:%M "
-time-alt = "%H:%M:%S "
+date-alt = "%a %d. %b(%m) %Y"
+time = "%H:%M"
+time-alt = "%H:%M:%S"
 label = %date% %time%
 
 [module/pulseaudio]
@@ -86,10 +90,10 @@ type = internal/pulseaudio
 format-volume = <label-volume>
 label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
-format-volume-prefix = " "
+format-volume-prefix = "墳  "
 format-volume-prefix-foreground = ${colors.icon}
-label-muted =  muted
-label-muted-foreground = #666
+label-muted = 婢  muted
+label-muted-foreground = #777
 
 [module/temperature]
 type = internal/temperature
@@ -100,9 +104,9 @@ format-warn = <label-warn>
 label = %temperature-c%
 label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
-format-prefix = " "
+format-prefix = "   "
 format-prefix-foreground = ${colors.icon}
-format-warn-prefix = " "
+format-warn-prefix = "   "
 format-warn-prefix-foreground = ${colors.secondary}
 
 [module/i3]
@@ -142,6 +146,22 @@ label-urgent-padding = 2
 ; Separator in between workspaces
 ; label-separator = |
 
+[module/network]
+type = internal/network
+interface = wlp6s0
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+label-connected = %{F${colors.icon} %{F-}%downspeed:9%  %{F${colors.icon} %{F-}%upspeed:9%
+label-connected-foreground = ${colors.foreground}
+label-disconnected =   not connected
+label-disconnected-foreground = #777
+
+[module/ytmp3]
+type = custom/ipc
+hook-0 = echo '%{F${colors.icon}   %{F-}'
+hook-1 = echo '%{F${colors.icon}   %{F-}'
+initial = 1
+click-left = ~/.config/polybar/ytmp3.sh &
 
 [settings]
 screenchange-reload = true
