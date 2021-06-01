@@ -1,0 +1,8 @@
+configuration {
+    lines: 10;
+    font: "Roboto Light 12";
+    theme: "flat";
+    display-window: "Window";
+    display-run: "Run";
+    width: 30;
+}

@@ -1,0 +1,73 @@
+{
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "update.mode": "manual",
+    "workbench.colorTheme": "One Monokai",
+    "keyboard.dispatch": "keyCode",
+    "extensions.autoUpdate": false,
+    "editor.fontSize": 12,
+    "editor.fontFamily": "\"Hack Nerd Font Mono\"",
+    "omnisharp.useGlobalMono": "always",
+    "git.confirmSync": false,
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.editor.enablePreview": true,
+    "omnisharp.enableDecompilationSupport": true,
+    "omnisharp.enableRoslynAnalyzers": true,
+    "razor.disabled": true,
+    "vim.useSystemClipboard": true,
+    "vim.enableNeovim": true,
+    "window.menuBarVisibility": "toggle",
+    "files.enableTrash": false,
+    "zenMode.centerLayout": false,
+    "zenMode.fullScreen": false,
+    "zenMode.hideLineNumbers": false,
+    "zenMode.hideStatusBar": false,
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.fontSize": 12,
+    "asciidoc.preview.useEditorStyle": false,
+    "python.showStartPage": false,
+    "files.hotExit": "off",
+    "editor.wordWrap": "off",
+    "vim.smartRelativeLine": true,
+    "cmake.statusbar.visibility": "compact",
+    "debug.onTaskErrors": "abort",
+    "csharp.referencesCodeLens.enabled": false,
+    "jupyter.askForKernelRestart": false,
+    "explorer.confirmDragAndDrop": false,
+    "discord.lowerDetailsEditing": "Project: {workspace}",
+    "discord.lowerDetailsDebugging": "Project: {workspace}",
+    "workbench.activityBar.visible": true,
+    "breadcrumbs.enabled": true,
+    "editor.renderControlCharacters": false,
+    "window.zoomLevel": 0,
+    "window.restoreWindows": "none",
+    "cmake.configureOnOpen": true,
+    "files.autoSave": "onFocusChange",
+    "C_Cpp.clang_format_sortIncludes": true,
+    "C_Cpp.default.intelliSenseMode": "linux-gcc-x64",
+    "C_Cpp.intelliSenseEngineFallback": "Enabled",
+    "C_Cpp.experimentalFeatures": "Enabled",
+    "[html]": {
+        "editor.defaultFormatter": "lonefy.vscode-JS-CSS-HTML-formatter"
+    },
+    "vim.showcmd": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "editor.semanticHighlighting.enabled": true,
+    "[c]": {
+
+        "editor.wordBasedSuggestions": false,
+        "editor.suggest.insertMode": "replace",
+        "editor.semanticHighlighting.enabled": true,
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "arduino.path": "/usr/share/arduino",
+    "[cpp]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    }
+}

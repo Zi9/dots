@@ -45,7 +45,8 @@ module-margin-right = 2
 font-0 = Segoe UI:size=10;2
 font-1 = Hack Nerd Font:size=11;3
 
-modules-left = i3 ytmp3
+;modules-left = i3 ytmp3
+modules-left = i3
 modules-center = date
 modules-right = pulseaudio cpu memory temperature
 
@@ -73,7 +74,7 @@ type = internal/memory
 interval = 1
 format-prefix = "ﱨ   "
 format-prefix-foreground = ${colors.icon}
-label = %percentage_used%%
+label = %percentage_used%% : %percentage_swap_used%%
 format = <label>
 
 [module/date]
@@ -94,6 +95,7 @@ format-volume-prefix = "墳  "
 format-volume-prefix-foreground = ${colors.icon}
 label-muted = 婢  muted
 label-muted-foreground = #777
+click-middle = pavucontrol
 
 [module/temperature]
 type = internal/temperature
@@ -146,22 +148,22 @@ label-urgent-padding = 2
 ; Separator in between workspaces
 ; label-separator = |
 
-[module/network]
-type = internal/network
-interface = wlp6s0
-format-connected = <label-connected>
-format-disconnected = <label-disconnected>
-label-connected = %{F${colors.icon} %{F-}%downspeed:9%  %{F${colors.icon} %{F-}%upspeed:9%
-label-connected-foreground = ${colors.foreground}
-label-disconnected =   not connected
-label-disconnected-foreground = #777
+;[module/network]
+;type = internal/network
+;interface = wlp6s0
+;format-connected = <label-connected>
+;format-disconnected = <label-disconnected>
+;label-connected = %{F${colors.icon}} %{F-}%downspeed:9%  %{F${colors.icon}} %{F-}%upspeed:9%
+;label-connected-foreground = ${colors.foreground}
+;label-disconnected =   not connected
+;label-disconnected-foreground = #777
 
-[module/ytmp3]
-type = custom/ipc
-hook-0 = echo '%{F${colors.icon}   %{F-}'
-hook-1 = echo '%{F${colors.icon}   %{F-}'
-initial = 1
-click-left = ~/.config/polybar/ytmp3.sh &
+;[module/ytmp3]
+;type = custom/ipc
+;hook-0 = echo '%{F${colors.icon}}   %{F-}'
+;hook-1 = echo '%{F${colors.icon}}   %{F-}'
+;initial = 1
+;click-left = ~/.config/polybar/ytmp3.sh &
 
 [settings]
 screenchange-reload = true
